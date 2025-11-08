@@ -53,18 +53,20 @@ if not st.session_state.game_over:
     st.markdown(f"<h4 style='text-align:center;'>Current Score: {st.session_state.score}</h4>", unsafe_allow_html=True)
     st.divider()
 
-    col1, col2 = st.columns(2)
+    # Layout with centered VS
+    col1, col_mid, col2 = st.columns([4, 1, 4])
 
     with col1:
         st.subheader("A")
         st.markdown(format_data(st.session_state.account_a))
 
+    with col_mid:
+        # Centered VS
+        st.markdown(f"<div style='text-align:center; font-size:40px; color:#00BFFF;'>{vs}</div>", unsafe_allow_html=True)
+
     with col2:
         st.subheader("B")
         st.markdown(format_data(st.session_state.account_b))
-
-    # VS separator
-    st.markdown("<h2 style='text-align:center; color:#00BFFF;'>🆚</h2>", unsafe_allow_html=True)
 
     # Choose your guess
     st.write("Who has more followers?")
